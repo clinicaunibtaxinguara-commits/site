@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoovet 24h – Referência em cuidados com animais silvestres e exóticos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-primary: #2e7d32;
+      --green-dark: #1b5e20;
+      --green-mid: #388e3c;
+      --green-light: #4caf50;
+      --green-pale: #e8f5e9;
+      --green-bg: #f1f8f1;
+      --red-emergency: #c62828;
+      --red-light: #ef5350;
+      --orange: #e65100;
+      --white: #ffffff;
+      --gray-100: #f5f5f5;
+      --gray-200: #eeeeee;
+      --gray-300: #e0e0e0;
+      --gray-500: #9e9e9e;
+      --gray-700: #616161;
+      --gray-900: #212121;
+      --text-dark: #1a2e1a;
+      --text-body: #424242;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 32px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text-body); background: var(--white); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ======================== TOP BAR ======================== */
+    .topbar {
+      background: var(--green-dark);
+      color: var(--white);
+      font-size: 12px;
+      padding: 6px 0;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .topbar-left span { display: flex; align-items: center; gap: 5px; }
+    .topbar-left i { font-size: 11px; color: var(--green-light); }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .topbar-right a {
+      display: flex; align-items: center; gap: 5px;
+      color: var(--white); font-size: 12px;
+      transition: opacity .2s;
+    }
+    .topbar-right a:hover { opacity: .8; }
+
+    /* ======================== HEADER / NAV ======================== */
+    .header {
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,.10);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px; padding-bottom: 12px;
+      gap: 20px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: var(--green-primary);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 20px;
+    }
+    .logo-text { line-height: 1.1; }
+    .logo-text strong { font-size: 22px; font-weight: 800; color: var(--green-dark); display: block; }
+    .logo-text span { font-size: 10px; color: var(--gray-500); font-weight: 500; letter-spacing: .5px; text-transform: uppercase; }
+
+    nav { display: flex; align-items: center; gap: 6px; }
+    nav a {
+      font-size: 13px; font-weight: 500; color: var(--text-dark);
+      padding: 7px 14px; border-radius: 6px;
+      transition: background .2s, color .2s;
+    }
+    nav a:hover { background: var(--green-pale); color: var(--green-primary); }
+
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-wpp {
+      background: #25d366;
+      color: white;
+      border: none; border-radius: 8px;
+      padding: 9px 18px;
+      font-size: 13px; font-weight: 600;
+      display: flex; align-items: center; gap: 7px;
+      cursor: pointer; transition: background .2s, transform .1s;
+    }
+    .btn-wpp:hover { background: #1ebe5d; transform: translateY(-1px); }
+    .btn-emergency {
+      background: var(--red-emergency);
+      color: white;
+      border: none; border-radius: 8px;
+      padding: 9px 18px;
+      font-size: 13px; font-weight: 600;
+      display: flex; align-items: center; gap: 7px;
+      cursor: pointer; transition: background .2s, transform .1s;
+    }
+    .btn-emergency:hover { background: #b71c1c; transform: translateY(-1px); }
+
+    /* ======================== CONTAINER ======================== */
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+    /* ======================== HERO ======================== */
+    .hero {
+      background: linear-gradient(135deg, #1b3a1b 0%, #2e5c2e 40%, #3d7a3d 100%);
+      color: white;
+      padding: 70px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1550159930-40066082a4fc?w=1400&q=80') center/cover no-repeat;
+      opacity: .18;
+      z-index: 0;
+    }
+    .hero .container { position: relative; z-index: 1; display: flex; align-items: center; gap: 60px; }
+    .hero-content { flex: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      color: white; font-size: 12px; font-weight: 600;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 20px; text-transform: uppercase; letter-spacing: .5px;
+    }
+    .hero h1 {
+      font-size: 42px; font-weight: 800; line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: #81c784; }
+    .hero p {
+      font-size: 15px; line-height: 1.7; opacity: .9;
+      margin-bottom: 28px; max-width: 480px;
+    }
+    .hero-stats {
+      display: flex; gap: 24px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      padding: 14px 20px;
+    }
+    .hero-stat strong { display: block; font-size: 22px; font-weight: 800; color: #a5d6a7; }
+    .hero-stat span { font-size: 11px; opacity: .8; font-weight: 500; }
+    .hero-phones { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-phone {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 10px;
+      font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: transform .15s, box-shadow .15s;
+      border: none;
+    }
+    .btn-phone:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+    .btn-phone.green { background: #4caf50; color: white; }
+    .btn-phone.dark { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.35); color: white; }
+    .btn-phone i { font-size: 16px; }
+    .btn-phone .phone-sub { font-size: 10px; opacity: .8; font-weight: 400; display: block; text-align: left; }
+
+    .hero-image { flex: 0 0 340px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); }
+    .hero-image img { width: 100%; height: 380px; object-fit: cover; }
+
+    /* ======================== ABOUT ======================== */
+    .section-about { padding: 80px 0; background: var(--white); }
+    .section-about .container { display: flex; gap: 60px; align-items: center; }
+    .about-image { flex: 0 0 380px; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); }
+    .about-image img { width: 100%; height: 300px; object-fit: cover; }
+    .about-content { flex: 1; }
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--green-primary);
+      margin-bottom: 8px;
+    }
+    .about-content h2 { font-size: 32px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px; line-height: 1.2; }
+    .about-content p { font-size: 14px; line-height: 1.8; color: var(--text-body); margin-bottom: 12px; }
+    .about-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 32px;
+    }
+    .about-stat-card {
+      background: var(--green-pale);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .about-stat-card i { font-size: 24px; color: var(--green-primary); margin-bottom: 8px; }
+    .about-stat-card strong { display: block; font-size: 26px; font-weight: 800; color: var(--text-dark); }
+    .about-stat-card span { font-size: 12px; color: var(--text-body); }
+
+    /* ======================== SPECIALTIES ======================== */
+    .section-specialties { padding: 70px 0; background: var(--gray-100); }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-header h2 { font-size: 34px; font-weight: 800; color: var(--text-dark); margin-bottom: 10px; }
+    .section-header p { font-size: 15px; color: var(--gray-700); max-width: 560px; margin: 0 auto; }
+
+    .specialties-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .specialty-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s, box-shadow .2s;
+      border-top: 4px solid transparent;
+    }
+    .specialty-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .specialty-card.green { border-top-color: var(--green-primary); }
+    .specialty-card.red { border-top-color: var(--red-emergency); }
+    .specialty-card.blue { border-top-color: #1976d2; }
+    .specialty-card.orange { border-top-color: var(--orange); }
+    .specialty-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: white; margin-bottom: 18px;
+    }
+    .specialty-icon.green { background: var(--green-primary); }
+    .specialty-icon.red { background: var(--red-emergency); }
+    .specialty-icon.blue { background: #1976d2; }
+    .specialty-icon.orange { background: var(--orange); }
+    .specialty-icon.teal { background: #00796b; }
+    .specialty-icon.purple { background: #7b1fa2; }
+    .specialty-card h3 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+    .specialty-card p { font-size: 13px; color: var(--gray-700); line-height: 1.7; margin-bottom: 16px; }
+    .btn-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600; color: var(--green-primary);
+      transition: gap .2s;
+    }
+    .btn-link:hover { gap: 10px; }
+
+    /* ======================== CTA BANNER ======================== */
+    .cta-banner {
+      background: linear-gradient(90deg, #1b5e20 0%, #2e7d32 100%);
+      color: white;
+      padding: 40px 0;
+    }
+    .cta-banner .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .cta-banner h3 { font-size: 22px; font-weight: 700; }
+    .cta-banner p { font-size: 14px; opacity: .85; margin-top: 4px; }
+    .btn-wpp-large {
+      background: #25d366; color: white;
+      border: none; border-radius: 10px;
+      padding: 14px 28px; font-size: 15px; font-weight: 700;
+      display: flex; align-items: center; gap: 9px;
+      cursor: pointer; white-space: nowrap;
+      transition: background .2s, transform .15s;
+    }
+    .btn-wpp-large:hover { background: #1ebe5d; transform: translateY(-1px); }
+
+    /* ======================== EXOTIC ANIMALS ======================== */
+    .section-exotic { padding: 70px 0; background: var(--white); }
+    .section-exotic .container { display: flex; gap: 60px; align-items: flex-start; }
+    .exotic-content { flex: 0 0 320px; }
+    .exotic-content .section-label { color: var(--green-primary); }
+    .exotic-content h2 { font-size: 30px; font-weight: 800; color: var(--text-dark); margin-bottom: 20px; }
+    .exotic-features { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .exotic-features li { display: flex; align-items: flex-start; gap: 14px; }
+    .feat-icon {
+      width: 40px; height: 40px; border-radius: 10px; background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--green-primary); font-size: 16px;
+    }
+    .feat-text strong { font-size: 14px; font-weight: 700; color: var(--text-dark); display: block; }
+    .feat-text span { font-size: 12px; color: var(--gray-700); line-height: 1.5; }
+    .exotic-count {
+      margin-top: 28px;
+      background: var(--green-pale);
+      border-radius: 12px; padding: 16px 20px;
+      font-size: 14px; color: var(--text-dark); font-weight: 600;
+    }
+    .exotic-count strong { color: var(--green-primary); font-size: 18px; }
+    .btn-green-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 18px;
+      border: 2px solid var(--green-primary);
+      color: var(--green-primary);
+      border-radius: 10px; padding: 10px 22px;
+      font-size: 13px; font-weight: 700;
+      transition: background .2s, color .2s;
+    }
+    .btn-green-outline:hover { background: var(--green-primary); color: white; }
+
+    .exotic-gallery { flex: 1; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .gallery-item { border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .gallery-item img { width: 100%; height: 160px; object-fit: cover; transition: transform .3s; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-label {
+      padding: 10px 12px; background: white;
+      font-size: 12px; font-weight: 600; color: var(--text-dark);
+    }
+
+    /* ======================== INTERNAÇÃO ======================== */
+    .section-internacao { padding: 70px 0; background: var(--gray-100); }
+    .internacao-grid { display: flex; gap: 40px; align-items: flex-start; }
+    .internacao-left { flex: 1; }
+    .internacao-left h2 { font-size: 30px; font-weight: 800; color: var(--text-dark); margin-bottom: 8px; }
+    .internacao-left > p { font-size: 14px; color: var(--gray-700); margin-bottom: 28px; }
+    .internacao-features { display: flex; flex-direction: column; gap: 14px; }
+    .int-feat {
+      background: white; border-radius: 12px; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .int-feat-icon {
+      width: 42px; height: 42px; border-radius: 10px; background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--green-primary); font-size: 17px;
+    }
+    .int-feat h4 { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+    .int-feat p { font-size: 12px; color: var(--gray-700); line-height: 1.6; margin-top: 2px; }
+    .why-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 8px; }
+    .why-list li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-body); }
+    .why-list li i { color: var(--green-primary); font-size: 14px; }
+    .internacao-right { flex: 0 0 300px; }
+    .internacao-cta {
+      background: var(--green-primary); color: white;
+      border-radius: 16px; padding: 28px 24px;
+      box-shadow: var(--shadow-md);
+    }
+    .internacao-cta h4 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .internacao-cta p { font-size: 13px; opacity: .85; margin-bottom: 20px; }
+    .btn-wpp-cta {
+      display: flex; align-items: center; gap: 8px;
+      background: white; color: var(--green-primary);
+      border: none; border-radius: 10px; padding: 12px 20px;
+      font-size: 14px; font-weight: 700; cursor: pointer; width: 100%;
+      justify-content: center; margin-bottom: 10px;
+      transition: background .2s;
+    }
+    .btn-wpp-cta:hover { background: var(--green-pale); }
+    .btn-tel-cta {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.15); color: white;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 10px; padding: 12px 20px;
+      font-size: 14px; font-weight: 700; cursor: pointer; width: 100%;
+      justify-content: center;
+      transition: background .2s;
+    }
+    .btn-tel-cta:hover { background: rgba(255,255,255,.25); }
+
+    /* ======================== LOCATION ======================== */
+    .section-location { padding: 70px 0; background: var(--white); }
+    .location-header { text-align: center; margin-bottom: 40px; }
+    .location-header h2 { font-size: 32px; font-weight: 800; color: var(--text-dark); }
+    .location-header p { font-size: 14px; color: var(--gray-700); }
+
+    .emergency-bar {
+      background: var(--red-emergency);
+      border-radius: 14px; padding: 18px 28px;
+      color: white; display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 32px; gap: 20px;
+    }
+    .emergency-bar strong { font-size: 15px; font-weight: 700; }
+    .emergency-bar p { font-size: 13px; opacity: .85; }
+    .btn-sos {
+      background: white; color: var(--red-emergency);
+      border: none; border-radius: 8px; padding: 10px 22px;
+      font-size: 14px; font-weight: 700; white-space: nowrap; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-sos:hover { background: #ffebee; }
+
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .location-info { display: flex; flex-direction: column; gap: 16px; }
+    .info-card {
+      background: var(--gray-100); border-radius: 12px; padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .info-icon {
+      width: 44px; height: 44px; border-radius: 10px; background: var(--green-primary);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: white; font-size: 18px;
+    }
+    .info-icon.red { background: var(--red-emergency); }
+    .info-icon.calendar { background: #1976d2; }
+    .info-icon.clock { background: var(--orange); }
+    .info-card h4 { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+    .info-card p { font-size: 12px; color: var(--gray-700); line-height: 1.6; margin-top: 2px; }
+    .info-card a { font-size: 13px; font-weight: 600; color: var(--green-primary); display: block; }
+    .map-area { border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-md); }
+    .map-area iframe { width: 100%; height: 300px; border: none; display: block; }
+
+    /* ======================== CONTACT ======================== */
+    .section-contact { padding: 70px 0; background: var(--gray-100); }
+    .contact-header { text-align: center; margin-bottom: 40px; }
+    .contact-header h2 { font-size: 32px; font-weight: 800; color: var(--text-dark); }
+    .contact-header p { font-size: 14px; color: var(--gray-700); }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .contact-card {
+      background: white; border-radius: 14px; padding: 28px 24px;
+      text-align: center; box-shadow: var(--shadow-sm);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .contact-card-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; color: white; margin: 0 auto 16px;
+    }
+    .contact-card-icon.red { background: var(--red-emergency); }
+    .contact-card-icon.green { background: var(--green-primary); }
+    .contact-card-icon.blue { background: #1976d2; }
+    .contact-card h3 { font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .contact-card p { font-size: 13px; color: var(--gray-700); margin-bottom: 16px; line-height: 1.6; }
+    .btn-contact {
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      width: 100%; padding: 11px; border-radius: 9px;
+      font-size: 14px; font-weight: 700; border: none; cursor: pointer;
+      transition: filter .2s, transform .15s;
+    }
+    .btn-contact:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-contact.red { background: var(--red-emergency); color: white; }
+    .btn-contact.green { background: #25d366; color: white; }
+    .btn-contact.blue { background: #1976d2; color: white; }
+
+    /* ======================== FINAL CTA BANNER ======================== */
+    .section-final-cta {
+      background: linear-gradient(135deg, #1b3a1b 0%, #2e7d32 100%);
+      color: white; padding: 60px 0; text-align: center;
+    }
+    .section-final-cta h2 { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
+    .section-final-cta p { font-size: 15px; opacity: .85; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .final-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ======================== FOOTER ======================== */
+    footer {
+      background: #0f1f0f;
+      color: rgba(255,255,255,.7);
+      padding: 50px 0 24px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand .logo-text strong { color: white; }
+    .footer-brand .logo-text span { color: rgba(255,255,255,.45); }
+    .footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 14px; opacity: .65; }
+    footer h4 { font-size: 13px; font-weight: 700; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: .8px; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    footer ul li a { font-size: 13px; color: rgba(255,255,255,.6); transition: color .2s; }
+    footer ul li a:hover { color: var(--green-light); }
+    .footer-contact-info { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contact-info a { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,.6); transition: color .2s; }
+    .footer-contact-info a:hover { color: var(--green-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; opacity: .45;
+      flex-wrap: wrap; gap: 10px;
+    }
+
+    /* ======================== RESPONSIVE ======================== */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 32px; }
+      .hero-image { flex: 0 0 260px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .topbar { display: none; }
+      nav { display: none; }
+      .hero .container { flex-direction: column; }
+      .hero-image { flex: unset; width: 100%; }
+      .hero h1 { font-size: 28px; }
+      .section-about .container { flex-direction: column; }
+      .about-image { flex: unset; width: 100%; }
+      .about-stats { grid-template-columns: repeat(2, 1fr); }
+      .specialties-grid { grid-template-columns: 1fr; }
+      .section-exotic .container { flex-direction: column; }
+      .exotic-content { flex: unset; width: 100%; }
+      .internacao-grid { flex-direction: column; }
+      .internacao-right { flex: unset; width: 100%; }
+      .location-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-banner .container { flex-direction: column; text-align: center; }
+      .emergency-bar { flex-direction: column; text-align: center; }
+      .footer-bottom { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span><i class="fas fa-map-marker-alt"></i> Rua Domingos de Morais, 111 – Vila Mariana, SP</span>
+      <span><i class="fas fa-clock"></i> Atendimento 24 horas</span>
+    </div>
+    <div class="topbar-right">
+      <a href="https://wa.me/5511977280105"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="tel:+5511977280105"><i class="fas fa-phone"></i> (11) 97728-0105</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-icon"><i class="fas fa-paw"></i></div>
+      <div class="logo-text">
+        <strong>Zoovet</strong>
+        <span>Hospital Veterinário</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#internacao">Internação</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://wa.me/5511977280105" class="btn-wpp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="tel:+5511977390105" class="btn-emergency">
+        <i class="fas fa-phone"></i> Emergência
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-star"></i> Referência em São Paulo</div>
+      <h1>Referência em cuidados com <span>animais silvestres</span> e exóticos</h1>
+      <p>Há mais de 20 anos no mercado, o hospital veterinário ZOOVET conta com especialistas em silvestres e especialistas em cães e gatos. Atendimento 24 horas com excelência e dedicação.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>24h</strong>
+          <span>Atendimento<br>Contínuo</span>
+        </div>
+        <div class="hero-stat">
+          <strong>50+</strong>
+          <span>Espécies<br>Silvestres</span>
+        </div>
+        <div class="hero-stat">
+          <strong>Exames<br>de Imagem</strong>
+          <span>Raio-X, Ultrassom<br>e mais</span>
+        </div>
+        <div class="hero-stat">
+          <strong>Equipe<br>Especializada</strong>
+          <span>Médicos<br>Veterinários</span>
+        </div>
+      </div>
+      <div class="hero-phones">
+        <a href="tel:+5511977280105" class="btn-phone green">
+          <i class="fas fa-phone"></i>
+          <span>
+            (11) 97728-0105
+            <span class="phone-sub">Agendamentos</span>
+          </span>
+        </a>
+        <a href="tel:+5511977390105" class="btn-phone dark">
+          <i class="fas fa-ambulance"></i>
+          <span>
+            (11) 97739-0105
+            <span class="phone-sub">Emergência 24h</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- Substituir pela imagem real do hospital/animais -->
+      <img src="https://images.unsplash.com/photo-1611777751234-d73cdae4d5a7?w=700&q=80" alt="Atendimento veterinário Zoovet" />
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section-about" id="sobre">
+  <div class="container">
+    <div class="about-image">
+      <!-- Substituir pela imagem real -->
+      <img src="https://images.unsplash.com/photo-1601758063890-311ed2f6c3c8?w=800&q=80" alt="Nossa equipe Zoovet" />
+    </div>
+    <div class="about-content">
+      <p class="section-label">Sobre o Zoovet 24h</p>
+      <h2>Conheça o nosso hospital veterinário</h2>
+      <p>Nossa História</p>
+      <p>Há mais de 20 anos no mercado, o hospital veterinário ZOOVET conta com especialistas em silvestres e especialistas em cães e gatos. Referência em São Paulo no cuidado com animais silvestres e exóticos.</p>
+      <p>Somos referência no atendimento de aves, répteis, mamíferos silvestres, cães e gatos e animais exóticos. Nossa equipe é capacitada e dedicada para oferecer o melhor atendimento para o seu animal.</p>
+      <div class="about-stats">
+        <div class="about-stat-card">
+          <i class="fas fa-user-md"></i>
+          <strong>Especialistas</strong>
+          <span>Capacitados</span>
+        </div>
+        <div class="about-stat-card">
+          <i class="fas fa-flask"></i>
+          <strong>Laboratório</strong>
+          <span>Próprio</span>
+        </div>
+        <div class="about-stat-card">
+          <i class="fas fa-calendar-check"></i>
+          <strong>20+</strong>
+          <span>Anos de Experiência</span>
+        </div>
+        <div class="about-stat-card">
+          <i class="fas fa-x-ray"></i>
+          <strong>Exames de Imagem</strong>
+          <span>Completos</span>
+        </div>
+        <div class="about-stat-card">
+          <i class="fas fa-clock"></i>
+          <strong>Atendimento 24h</strong>
+          <span>Todos os dias</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="section-specialties" id="especialidades">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Nossas Especialidades</p>
+      <h2>Oferecemos serviços de saúde para o seu animal de forma especializada e segura</h2>
+      <p>Clique para consultar de forma rápida e fácil pelo WhatsApp ou Fone</p>
+    </div>
+    <div class="specialties-grid">
+      <div class="specialty-card green">
+        <div class="specialty-icon green"><i class="fas fa-dove"></i></div>
+        <h3>Animais Silvestres</h3>
+        <p>Especialistas em animais silvestres com mais de 20 anos de experiência em São Paulo. Atendimento completo para aves, répteis e mamíferos.</p>
+        <a href="https://wa.me/5511977280105" class="btn-link"><i class="fab fa-whatsapp"></i> Fale no WhatsApp <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="specialty-card green">
+        <div class="specialty-icon green"><i class="fas fa-dog"></i></div>
+        <h3>Cães e Gatos</h3>
+        <p>Atendimento especializado com uma equipe treinada, com cuidado e atenção que seu pet merece 24 horas por dia.</p>
+        <a href="https://wa.me/5511977280105" class="btn-link"><i class="fab fa-whatsapp"></i> Fale no WhatsApp <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="specialty-card red">
+        <div class="specialty-icon red"><i class="fas fa-ambulance"></i></div>
+        <h3>Emergência 24h</h3>
+        <p>Pronto atendimento veterinário 24 horas por dia, 7 dias por semana. Emergências atendidas imediatamente em nossa equipe especializada.</p>
+        <a href="https://wa.me/5511977390105" class="btn-link"><i class="fab fa-whatsapp"></i> Fale no WhatsApp <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="specialty-card blue">
+        <div class="specialty-icon blue"><i class="fas fa-stethoscope"></i></div>
+        <h3>Consultas Especializadas</h3>
+        <p>Consultas com clínicos gerais e especialistas. Alta capacidade técnica para diagnósticos precisos.</p>
+        <a href="https://wa.me/5511977280105" class="btn-link"><i class="fab fa-whatsapp"></i> Fale no WhatsApp <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="specialty-card orange">
+        <div class="specialty-icon orange"><i class="fas fa-x-ray"></i></div>
+        <h3>Exames de Imagem</h3>
+        <p>Raio-X, Ultrassonografia e tomografia computadorizada. Equipamentos modernos para diagnósticos precisos.</p>
+        <a href="https://wa.me/5511977280105" class="btn-link"><i class="fab fa-whatsapp"></i> Fale no WhatsApp <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="specialty-card blue">
+        <div class="specialty-icon teal"><i class="fas fa-vials"></i></div>
+        <h3>Laboratório</h3>
+        <p>Laboratório completo com exames hematológicos, bioquímicos e microbiológicos realizados com precisão e rapidez.</p>
+        <a href="https://wa.me/5511977280105" class="btn-link"><i class="fab fa-whatsapp"></i> Fale no WhatsApp <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="container">
+    <div>
+      <h3>Atendimento 24 Horas</h3>
+      <p>Receba atendimento 24 horas para animais de estimação. Emergências atendidas imediatamente em nossa nova equipe especializada.</p>
+    </div>
+    <a href="https://wa.me/5511977390105" class="btn-wpp-large">
+      <i class="fab fa-whatsapp"></i> LIGAR PARA EMERGÊNCIA<br><small>(11) 97739-0105</small>
+    </a>
+  </div>
+</div>
+
+<!-- ANIMAIS EXÓTICOS -->
+<section class="section-exotic" id="silvestres">
+  <div class="container">
+    <div class="exotic-content">
+      <p class="section-label">ESPECIALIDADE PRÓPRIA</p>
+      <h2>Animais Silvestres e Exóticos</h2>
+      <ul class="exotic-features">
+        <li>
+          <div class="feat-icon"><i class="fas fa-user-md"></i></div>
+          <div class="feat-text">
+            <strong>Especialistas em Silvestres</strong>
+            <span>Equipe com formação específica no atendimento de animais silvestres.</span>
+          </div>
+        </li>
+        <li>
+          <div class="feat-icon"><i class="fas fa-ambulance"></i></div>
+          <div class="feat-text">
+            <strong>Emergência 24h para Silvestres</strong>
+            <span>Atendimento emergencial disponível todos os dias da semana em São Paulo.</span>
+          </div>
+        </li>
+        <li>
+          <div class="feat-icon"><i class="fas fa-hospital"></i></div>
+          <div class="feat-text">
+            <strong>Estrutura Hospitalar Avançada</strong>
+            <span>Com centros de diagnóstico e tratamento e suporte intensivo.</span>
+          </div>
+        </li>
+        <li>
+          <div class="feat-icon"><i class="fas fa-microscope"></i></div>
+          <div class="feat-text">
+            <strong>Equipamentos Especializados</strong>
+            <span>Recursos modernos equipados para animais de diferentes espécies.</span>
+          </div>
+        </li>
+      </ul>
+      <div class="exotic-count">Mais de <strong>50 espécies</strong> diferentes atendidas!</div>
+      <a href="https://wa.me/5511977280105" class="btn-green-outline">
+        <i class="fas fa-paw"></i> Falar sobre Animais Silvestres
+      </a>
+    </div>
+    <div class="exotic-gallery">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <!-- Imagem real: Ave/Papagaio -->
+          <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400&q=80" alt="Aves" />
+          <div class="gallery-label">Aves</div>
+        </div>
+        <div class="gallery-item">
+          <!-- Imagem real: Réptil/Iguana -->
+          <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=400&q=80" alt="Répteis" />
+          <div class="gallery-label">Répteis</div>
+        </div>
+        <div class="gallery-item">
+          <!-- Imagem real: Mamífero silvestre -->
+          <img src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=400&q=80" alt="Mamíferos" />
+          <div class="gallery-label">Mamíferos</div>
+        </div>
+        <div class="gallery-item">
+          <!-- Imagem real: Anfíbio/Sapo -->
+          <img src="https://images.unsplash.com/photo-1497752531616-c3afd9760a11?w=400&q=80" alt="Anfíbios" />
+          <div class="gallery-label">Anfíbios</div>
+        </div>
+        <div class="gallery-item">
+          <!-- Imagem real: Animal exótico -->
+          <img src="https://images.unsplash.com/photo-1581888227599-779811939961?w=400&q=80" alt="Exóticos" />
+          <div class="gallery-label">Exóticos</div>
+        </div>
+        <div class="gallery-item">
+          <!-- Imagem real: Tartaruga -->
+          <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400&q=80" alt="Quelônios" />
+          <div class="gallery-label">Quelônios</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNAÇÃO -->
+<section class="section-internacao" id="internacao">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Internação Veterinária</p>
+      <h2>Cuidados Especiais quando mais precisa</h2>
+      <p>No Zoovet, compreendemos que alguns animais precisam de cuidados contínuos e monitoramento intensivo. Nossa equipe está pronta para cuidar do seu pet.</p>
+    </div>
+    <div class="internacao-grid">
+      <div class="internacao-left">
+        <div class="internacao-features">
+          <div class="int-feat">
+            <div class="int-feat-icon"><i class="fas fa-heartbeat"></i></div>
+            <div>
+              <h4>Monitoramento Contínuo</h4>
+              <p>Acompanhamento 24 horas por dia com equipe veterinária de plantão monitorando cada paciente.</p>
+            </div>
+          </div>
+          <div class="int-feat">
+            <div class="int-feat-icon"><i class="fas fa-syringe"></i></div>
+            <div>
+              <h4>Tratamento Personalizado</h4>
+              <p>Cada paciente recebe um plano de tratamento específico de acordo com suas necessidades.</p>
+            </div>
+          </div>
+          <div class="int-feat">
+            <div class="int-feat-icon"><i class="fas fa-pills"></i></div>
+            <div>
+              <h4>Medicação Controlada</h4>
+              <p>Administração precisa de medicamentos com controle rigoroso de dosagem e horários.</p>
+            </div>
+          </div>
+          <div class="int-feat">
+            <div class="int-feat-icon"><i class="fas fa-smile"></i></div>
+            <div>
+              <h4>Conforto e bem-Estar</h4>
+              <p>Ambientes adaptados para o conforto e bem-estar de cada espécie durante a internação.</p>
+            </div>
+          </div>
+        </div>
+        <ul class="why-list">
+          <li><i class="fas fa-check-circle"></i> Equipe especializada disponível 24 horas</li>
+          <li><i class="fas fa-check-circle"></i> Equipamentos modernos de monitoramento</li>
+          <li><i class="fas fa-check-circle"></i> Protocolos específicos para cada espécie</li>
+          <li><i class="fas fa-check-circle"></i> Comunicação constante com os tutores</li>
+          <li><i class="fas fa-check-circle"></i> Estrutura completa de UTI veterinária</li>
+        </ul>
+      </div>
+      <div class="internacao-right">
+        <div class="internacao-cta">
+          <h4>Para informações sobre Internação</h4>
+          <p>Entre em contato conosco e saiba mais sobre nossos serviços de internação veterinária especializada.</p>
+          <a href="https://wa.me/5511977280105" class="btn-wpp-cta">
+            <i class="fab fa-whatsapp"></i> (11) 97728-0105
+          </a>
+          <a href="tel:+5511977390105" class="btn-tel-cta">
+            <i class="fas fa-phone"></i> (11) 97739-0105
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section class="section-location" id="localizacao">
+  <div class="container">
+    <div class="location-header">
+      <p class="section-label">Nossa Localização</p>
+      <h2>Localizado no coração de São Paulo. Aqui estamos para emergências!</h2>
+    </div>
+    <div class="emergency-bar">
+      <div>
+        <strong>EMERGÊNCIA 24 HORAS</strong>
+        <p>Para atendimentos de emergência, ligue agora ou venha até nossa unidade.</p>
+      </div>
+      <a href="tel:+5511977390105" class="btn-sos"><i class="fas fa-phone"></i> LIGAR AGORA</a>
+    </div>
+    <div class="location-grid">
+      <div class="location-info">
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Endereço</h4>
+            <p>Rua Domingos de Morais, 111 – Vila Mariana, São Paulo – SP</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon red"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <h4>Emergência</h4>
+            <a href="tel:+5511977390105">(11) 97739-0105</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon calendar"><i class="fas fa-calendar-check"></i></div>
+          <div>
+            <h4>Agendamentos</h4>
+            <a href="tel:+5511977280105">(11) 97728-0105</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon clock"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>Horário de Funcionamento</h4>
+            <p>Atendimento 24 horas por dia, 7 dias por semana. Inclui feriados e fins de semana.</p>
+          </div>
+        </div>
+      </div>
+      <div class="map-area">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.6!2d-46.638!3d-23.588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sZoovet+Hospital+Veterinário!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="section-contact" id="contato">
+  <div class="container">
+    <div class="contact-header">
+      <p class="section-label">Entre em Contato</p>
+      <h2>Fique atento para emergências. Para agendamentos, ligue ou nos envie WhatsApp!</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-card-icon red"><i class="fas fa-ambulance"></i></div>
+        <h3>EMERGÊNCIA</h3>
+        <p>Para casos de emergência ligue imediatamente para nossa central disponível 24 horas.</p>
+        <a href="tel:+5511977390105" class="btn-contact red">
+          <i class="fas fa-phone"></i> LIGAR AGORA
+        </a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon green"><i class="fab fa-whatsapp"></i></div>
+        <h3>AGENDAMENTO</h3>
+        <p>Para consultas e agendamentos, entre em contato pelo WhatsApp ou telefone.</p>
+        <a href="https://wa.me/5511977280105" class="btn-contact green">
+          <i class="fab fa-whatsapp"></i> ENVIAR WHATSAPP
+        </a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon blue"><i class="fas fa-info-circle"></i></div>
+        <h3>INFORMAÇÕES</h3>
+        <p>Para dúvidas e informações gerais sobre nossos serviços, entre em contato.</p>
+        <a href="https://wa.me/5511977280105" class="btn-contact blue">
+          <i class="fab fa-whatsapp"></i> FALAR AGORA
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section-final-cta">
+  <div class="container">
+    <h2>Mais de 20 anos cuidando dos seus animais</h2>
+    <p>Referência no atendimento 24 horas para animais silvestres e exóticos na cidade de São Paulo. Conte com nossa equipe especializada!</p>
+    <div class="final-cta-buttons">
+      <a href="tel:+5511977390105" class="btn-phone green">
+        <i class="fas fa-phone"></i>
+        <span>(11) 97739-0105 <span class="phone-sub">Emergência</span></span>
+      </a>
+      <a href="https://wa.me/5511977280105" class="btn-phone dark">
+        <i class="fab fa-whatsapp"></i>
+        <span>(11) 97728-0105 <span class="phone-sub">Agendamentos</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-paw"></i></div>
+          <div class="logo-text">
+            <strong>Zoovet</strong>
+            <span>Hospital Veterinário</span>
+          </div>
+        </div>
+        <p>Há mais de 20 anos no mercado, o hospital veterinário ZOOVET conta com especialistas em silvestres e especialistas em cães e gatos. Atendimento 24 horas com excelência e dedicação.</p>
+      </div>
+      <div>
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#internacao">Internação</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#">Animais Silvestres</a></li>
+          <li><a href="#">Cães e Gatos</a></li>
+          <li><a href="#">Emergência 24h</a></li>
+          <li><a href="#">Consultas</a></li>
+          <li><a href="#">Exames de Imagem</a></li>
+          <li><a href="#">Laboratório</a></li>
+          <li><a href="#">Internação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <div class="footer-contact-info">
+          <a href="https://www.google.com/maps?q=Rua+Domingos+de+Morais+111+Vila+Mariana+SP" target="_blank">
+            <i class="fas fa-map-marker-alt"></i> Rua Domingos de Morais, 111 – Vila Mariana, SP
+          </a>
+          <a href="tel:+5511977390105"><i class="fas fa-phone"></i> (11) 97739-0105 (Emergência)</a>
+          <a href="tel:+5511977280105"><i class="fas fa-phone"></i> (11) 97728-0105 (Agendamento)</a>
+          <a href="https://wa.me/5511977280105"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Zoovet Hospital Veterinário. Todos os direitos reservados.</span>
+      <span>Desenvolvido com ❤️ para o bem-estar animal</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
